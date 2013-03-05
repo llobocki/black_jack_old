@@ -35,11 +35,14 @@
 #include "ctime"
 #include "cstdlib"
 
+#include "dealer.h"
+#include "player.h"
+
 class Game
 {
 };
 
-void start(std::vector<Card> &deck);
 
-void shuffle(std::vector<Card> &deck);
+void game(std::vector<Card> &deck, Dealer dealer, Player player);
+
 #endif // GAME_H

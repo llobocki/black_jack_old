@@ -45,3 +45,20 @@ void shuffle(std::vector<Card> &deck) {
     std::random_shuffle(deck.begin(),deck.end());
 
 }
+
+void game(std::vector< Card >& deck, Dealer dealer, Player player)
+{
+    int end = deck.size()*2/3;
+    int counter = 0;
+    int all_games = 10;
+    int nr_game = 0;
+    
+    start(deck);
+    shuffle(deck);
+    
+    std::cout << "podaj liczbę gier:";
+    
+    while (nr_game ++ < all_games);
+
+}
+

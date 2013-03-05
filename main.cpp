@@ -17,8 +17,10 @@ int main(void) {
 
 
     std::vector<Card> deck;
-    start(deck);
-    shuffle(deck);
+    Dealer dealer;
+    Player player;
+
+    game(deck, dealer, player);
 
 
     for (int i = 0; i < 52; ++i)
