@@ -31,10 +31,10 @@
 
 // using std::cout;
 
-Card::Card(Card::Color c, int i)
+Card::Card(Card::Color c, Card::Value v)
 {
     color = c;
-    value = i;
+    value = v;
 }
 
 Card::Card()
@@ -44,7 +44,8 @@ Card::Card()
 
 int Card::get_value() const
 {
-    return value;
+
+    return (value < 11) ? value : 10;
 }
 
 int Card::get_colour() const
@@ -52,8 +53,9 @@ int Card::get_colour() const
     return color;
 }
 
-void Card::print()
+void Card::print() const
 {
+    std::cout << "karta: ";
     if (color == clubs)
         std::cout << "clubs ";
     else if (color == diamonds)
@@ -63,11 +65,16 @@ void Card::print()
     else
         std::cout << "spades ";
 
-    std::cout << value << '\t';
+    if (value == A)
+        std::cout << "A\n";
+    else if (value == J)
+        std::cout << "J\n";
+    else if (value == Q)
+        std::cout << "Q\n";
+    else if (value == K)
+        std::cout << "K\n";
+    else
+        std::cout << value << '\n';
 }
-
-
-
-
 
 

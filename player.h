@@ -24,22 +24,40 @@
     DEALINGS IN THE SOFTWARE.
 */
 
+#include "card.h"
+#include "option.h"
 
 #ifndef PLAYER_H
 #define PLAYER_H
+
+
 
 class Player
 {
     int cards;
     int bankroll;
+    
+    bool black_jack;
+    bool soft_ace;
+
+    
 public:
     Player();
     virtual ~Player();
 
+    int get_cards() const;
+    int get_bankroll() const;
+    bool get_black_jack() const;
+    
+    void check_black_jack();
+
     void print();
-    void add(int i);
+    void add(const Card card);
     void reset();
 
+    void loose(const int bet);
+    void win(const int bet);
+    void push();
 
 };
 

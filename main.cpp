@@ -22,11 +22,9 @@ int main(void) {
 
     game(deck, dealer, player);
 
-
-    for (int i = 0; i < 52; ++i)
-        deck[i].print();
-//     std::cout << deck[i].get_colour() << ' ' << deck[i].get_value() << '\t';
-    std::cout << '\n';
+//     for (int i = 0; i < 52; ++i)
+//         deck[i].print();
+// //     std::cout << deck[i].get_colour() << ' ' << deck[i].get_value() << '\t';
 
 
 }

@@ -32,15 +32,17 @@ class Card
 {
 public:
     enum Color {clubs = 1, diamonds, hearts, spades};
+    enum Value {A = 1, J = 11, Q = 12, K = 13};
 private:
     Color color;
-    int value;
+    Value value;
 public:
-    Card(Color c, int i);
+    Card(Color c, Value v);
     Card();
     int get_value() const;
     int get_colour() const;
-    void print();
+    void print() const;
+
 };
 
 #endif // CARD_H

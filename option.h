@@ -24,33 +24,23 @@
     DEALINGS IN THE SOFTWARE.
 */
 
-#include "card.h"
-#include "option.h"
 
-#ifndef DEALER_H
-#define DEALER_H
+#ifndef OPTION_H
+#define OPTION_H
 
-
-
-class Dealer
+namespace option{
+  
+class option
 {
-    int cards;
-    int two_cards;
-    
-    bool black_jack;
-    bool soft_ace;
-public:
-    Dealer();
-    virtual ~Dealer();
-
-    void reset();
-    void add(const Card card);
-    void print();
-
-    int get() const;
-    bool get_black_jack() const;
-
-
 };
 
-#endif // DEALER_H
+void black_jack(bool& black_jack, int i);
+
+
+void soft_ace(bool& soft_ace, int& cards);
+
+void use_ace(bool &soft_ace, int &cards);  
+
+}
+
+#endif // OPTION_H

@@ -24,33 +24,31 @@
     DEALINGS IN THE SOFTWARE.
 */
 
-#include "card.h"
+
 #include "option.h"
 
-#ifndef DEALER_H
-#define DEALER_H
+namespace option {
 
-
-
-class Dealer
+void black_jack(bool& black_jack, int i)
 {
-    int cards;
-    int two_cards;
-    
-    bool black_jack;
-    bool soft_ace;
-public:
-    Dealer();
-    virtual ~Dealer();
+    if (i == 21) black_jack= true;
+}
 
-    void reset();
-    void add(const Card card);
-    void print();
+void soft_ace(bool &soft_ace, int &cards)
+{
+    if (soft_ace == false && cards < 12) {
+        cards += 10;
+        soft_ace = true;
+    };
+//   else if (soft_ace == true && cards > 11){
 
-    int get() const;
-    bool get_black_jack() const;
+//   }
+}
 
-
-};
-
-#endif // DEALER_H
+void use_ace(bool &soft_ace, int &cards) {
+    if (soft_ace == true && cards > 21) {
+        soft_ace = false;
+        cards -= 10;
+    }
+}
+}
