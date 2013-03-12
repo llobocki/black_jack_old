@@ -25,22 +25,67 @@
 */
 
 
-#ifndef OPTION_H
-#define OPTION_H
+#include "person.h"
+#include "iostream"
 
-namespace option{
-  
-class option
+Person::Person()
 {
-};
+  cards = 0;
+  
+  two_cards = 0;
+  black_jack = false;
+  soft_ace = false;
+}
 
-void black_jack(bool& black_jack, int i);
-
-
-void soft_ace(bool& soft_ace, int& cards);
-
-void use_ace(bool &soft_ace, int &cards);  
+Person::~Person()
+{
 
 }
 
-#endif // OPTION_H
+int Person::get_cards() const
+{
+  return cards;
+}
+
+void Person::check_black_jack()
+{
+    if (cards == 21) black_jack = true;
+
+}
+
+bool Person::get_black_jack() const
+{
+    return black_jack;
+
+}
+
+void Person::reset()
+{
+    cards = 0;
+    two_cards = 0;
+    soft_ace = false;
+    black_jack = false;
+}
+
+void Person::add(const Card card)
+{
+card.print();
+    if (card.get_value() == 1) option::soft_ace(soft_ace,cards); 		//test
+    cards += card.get_value();
+    option::use_ace(soft_ace,cards);
+    
+    if (two_cards == 2 && cards == 21) black_jack = true;
+
+    option::use_ace(soft_ace,cards);
+}
+
+
+void Person::print()
+{
+    std::cout << "\t\t\tgracz: ";
+    if (cards < 22)
+        std::cout << cards << '\n';
+    else
+        std::cout << "za dużo\n";
+
+}
