@@ -8,6 +8,7 @@
 #include "player.h"
 #include "dealer.h"
 #include "game.h"
+#include "gambler.h"
 
 
 
@@ -18,9 +19,13 @@ int main(void) {
 
     std::vector<Card> deck;
     Dealer dealer;
-    Player player;
+//     Player player;
 
-    game(deck, dealer, player);
+    Gambler gambler;
+
+//     gambler.create_field(2);
+
+    game(deck, dealer, gambler);
 
 //     for (int i = 0; i < 52; ++i)
 //         deck[i].print();

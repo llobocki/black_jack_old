@@ -28,79 +28,81 @@
 #include "player.h"
 #include "iostream"
 
-Player::Player()
+Player::Player() :Person()
 {
-    cards = 0;
-    bankroll = 0;
+//     cards = 0;
+    bet = 10;
 
-    black_jack = false;
-    soft_ace = false;
+//     black_jack = false;
+//     soft_ace = false;
 }
 
-Player::~Player()
-{
+// Player::~Player()
+// {
+//
+// }
 
-}
-
-void Player::add(const Card card)
-{
-    card.print();
-    if (card.get_value() == 1) option::soft_ace(soft_ace,cards); 		//test
-    cards += card.get_value();
-    option::use_ace(soft_ace,cards);
-}
+// void Player::add(const Card card)
+// {
+//     card.print();
+//     if (card.get_value() == 1) option::soft_ace(soft_ace,cards); 		//test
+//     cards += card.get_value();
+//     option::use_ace(soft_ace,cards);
+// }
 
 void Player::print()
 {
     std::cout << "\t\t\tgracz: ";
-    if (cards < 22)
-        std::cout << cards << '\n';
+    if (get_cards() < 22)
+        std::cout << get_cards() << '\n';
     else
         std::cout << "za dużo\n";
 
 }
 
-void Player::reset()
+// void Player::reset()
+// {
+//     cards = 0;
+//     soft_ace = false;
+//     black_jack = false;
+// }
+
+int Player::get_bet() const
 {
-    cards = 0;
-    soft_ace = false;
-    black_jack = false;
+    return bet;
 }
 
-int Player::get_bankroll() const
-{
-    return bankroll;
-}
+// int Player::get_cards() const
+// {
+//     return cards;
+// }
 
-int Player::get_cards() const
-{
-    return cards;
-}
 
-void Player::loose(const int bet)
-{
-    std::cout << "porażka\n";
-    bankroll -= bet;
-}
+// void Player::check_black_jack()
+// {
+//     if (cards == 21) black_jack = true;
+// }
+//
+// bool Player::get_black_jack() const
+// {
+//     return black_jack;
+// }
 
-void Player::win(const int bet)
-{
-    std::cout << "zwycięstwo\n";
-    bankroll += bet;
-}
 
-void Player::push()
-{
-    std::cout << "remis\n";
-}
-
-void Player::check_black_jack()
-{
-    if (cards == 21) black_jack = true;
-}
-
-bool Player::get_black_jack() const
-{
-    return black_jack;
-}
+// void Player::loose(const int bet)
+// {
+//     std::cout << "porażka\n";
+//     bankroll -= bet;
+// }
+//
+// void Player::win(const int bet)
+// {
+//     std::cout << "zwycięstwo\n";
+//     bankroll += bet;
+// }
+//
+// void Player::push()
+// {
+//     std::cout << "remis\n";
+// }
 

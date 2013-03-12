@@ -42,6 +42,13 @@ Card::Card()
 
 }
 
+Card::Card(const Card& c)
+{
+    color = c.color;
+    value = c.value;
+}
+
+
 int Card::get_value() const
 {
 

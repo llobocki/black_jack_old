@@ -25,39 +25,42 @@
 */
 
 #include "card.h"
-#include "option.h"
+// #include "option.h"
+#include "person.h"
 
 #ifndef PLAYER_H
 #define PLAYER_H
 
 
 
-class Player
+class Player : public Person
 {
-    int cards;
-    int bankroll;
-    
-    bool black_jack;
-    bool soft_ace;
+//     int cards;
+    int bet;
 
-    
+//     bool black_jack;
+//     bool soft_ace;
+
+
 public:
     Player();
-    virtual ~Player();
+//     virtual ~Player();
 
-    int get_cards() const;
-    int get_bankroll() const;
-    bool get_black_jack() const;
-    
-    void check_black_jack();
+//     int get_cards() const;
+//     bool get_black_jack() const;
+
+    int get_bet() const;
+    int set_bet(int);
+
+//     void check_black_jack();
 
     void print();
-    void add(const Card card);
-    void reset();
+//     void add(const Card card);
+//     void reset();
 
-    void loose(const int bet);
-    void win(const int bet);
-    void push();
+//     void loose(const int bet);
+//     void win(const int bet);
+//     void push();
 
 };
 

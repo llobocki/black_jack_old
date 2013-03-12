@@ -28,30 +28,50 @@
 #include "person.h"
 #include "iostream"
 
+void use_soft_ace(bool &soft_ace, int &cards)
+{
+    if (soft_ace == false && cards < 12) {
+        cards += 10;
+        soft_ace = true;
+    };
+//   else if (soft_ace == true && cards > 11){
+
+//   }
+}
+
+void use_ace(bool &soft_ace, int &cards) {
+    if (soft_ace == true && cards > 21) {
+        soft_ace = false;
+        cards -= 10;
+    }
+}
+
+
 Person::Person()
 {
-  cards = 0;
-  
-  two_cards = 0;
-  black_jack = false;
-  soft_ace = false;
+    value = 0;
+
+//     two_cards = 0;
+    split = false;
+    black_jack = false;
+    soft_ace = false;
 }
 
-Person::~Person()
-{
-
-}
+// Person::~Person()
+// {
+//   std::cout << "niszczenie\n";
+// }
 
 int Person::get_cards() const
 {
-  return cards;
+    return value;
 }
 
-void Person::check_black_jack()
-{
-    if (cards == 21) black_jack = true;
-
-}
+// void Person::check_black_jack()
+// {
+//     if (value == 21) black_jack = true;
+//
+// }
 
 bool Person::get_black_jack() const
 {
@@ -61,31 +81,54 @@ bool Person::get_black_jack() const
 
 void Person::reset()
 {
-    cards = 0;
-    two_cards = 0;
+    cards.clear();
+    value = 0;
+//     two_cards = 0;
+    split = false;
     soft_ace = false;
     black_jack = false;
 }
 
 void Person::add(const Card card)
 {
-card.print();
-    if (card.get_value() == 1) option::soft_ace(soft_ace,cards); 		//test
-    cards += card.get_value();
-    option::use_ace(soft_ace,cards);
-    
-    if (two_cards == 2 && cards == 21) black_jack = true;
+    card.print();
 
-    option::use_ace(soft_ace,cards);
+    cards.push_back(card);
+
+    value += card.get_value();
+    if (card.get_value() == 1) use_soft_ace(soft_ace,value); 		//test
+
+//     use_ace(soft_ace,value);
+
+    if (cards.size() == 2 && value == 21 && split == false)
+    {
+        black_jack = true;
+//         std::cout << "krupier black_jack\n";
+    }
+
+//     if (cards.size() == 2 && cards[0].get_value() == cards[1].get_value()){
+//       split = true;
+//     }
+
+    use_ace(soft_ace,value);
 }
 
 
 void Person::print()
 {
     std::cout << "\t\t\tgracz: ";
-    if (cards < 22)
-        std::cout << cards << '\n';
+    if (value < 22)
+        std::cout << value << '\n';
     else
         std::cout << "za dużo\n";
 
 }
+
+bool Person::can_split()
+{
+    if (cards.size() == 2 && cards[0].get_value() == cards[1].get_value()) {
+
+    }
+}
+
+

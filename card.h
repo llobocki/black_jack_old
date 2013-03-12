@@ -39,6 +39,7 @@ private:
 public:
     Card(Color c, Value v);
     Card();
+    Card(const Card &c);
     int get_value() const;
     int get_colour() const;
     void print() const;

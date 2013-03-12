@@ -37,13 +37,14 @@
 
 #include "dealer.h"
 #include "player.h"
-#include "option.h"
+#include "gambler.h"
+// #include "option.h"
 
 class Game
 {
 };
 
 
-void game(std::vector<Card> &deck, Dealer &dealer, Player &player);
+void game(std::vector<Card> &deck, Dealer &dealer, Gambler &gambler);
 
 #endif // GAME_H
