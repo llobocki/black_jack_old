@@ -33,7 +33,7 @@
 Gambler::Gambler()
 {
     bankroll = 0;
-    fields;
+//     fields;
 }
 
 // Gambler::~Gambler()
@@ -146,9 +146,11 @@ bool Gambler::check_black_jack()
     return check;
 }
 
-void Gambler::game_gambler(std::vector< Card >& deck, int& counter)
+void Gambler::game_gambler(std::vector< Card >& deck, const Dealer dealer, int& counter)
 {
     for (int j = 0; j < fields.size(); ++j) {
+
+
         char bufor;
         bool out = false;
 
@@ -162,13 +164,33 @@ void Gambler::game_gambler(std::vector< Card >& deck, int& counter)
                 fields[j].print();
 
             }
+            //					gra właściwa
+//             std::cout << "twój ruch:\n";
+//             std::cin >> bufor;
 
-            std::cout << "twój ruch:\n";
-            std::cin >> bufor;
+
+            /**********************************************
+             * 		kalkulator
+             * **************************************/
+            if(fields[j].can_split()) {
+                if(fields[j].split_aces()) {
+                    bufor = Basic_strategy::move_split(2, dealer.get_cards());
+                }
+                else
+                    bufor = Basic_strategy::move_split(fields[j].get_cards(), dealer.get_cards());
+            }
+            else if (fields[j].ace_soft()) {
+                bufor = Basic_strategy::move_ace(fields[j].get_cards(), dealer.get_cards());
+            }
+            else
+                bufor = Basic_strategy::move_normal(fields[j].get_cards(), dealer.get_cards());
+
+
+            std::cout << bufor << '\n';
 
 
             switch(bufor) {
-            case 'f' : {	//karta
+            case 'f' : {	//hit
                 fields[j].add(deck[counter++]);
                 fields[j].print();
                 break;
@@ -176,22 +198,28 @@ void Gambler::game_gambler(std::vector< Card >& deck, int& counter)
             case 'd': {		//double
                 if (fields[j].get_size() == 2) {
                     std::cout << "double - tylko jedna karta\n";
-		    fields[j].double_bet();
+                    fields[j].double_bet();
                     fields[j].add(deck[counter++]);
                     fields[j].print();
                     out = true;
 //             player.print();
                 }
-                else
-                    std::cout << "double jest możliwy tylko gdy masz dwie karty\n";
+                else {
+//                     std::cout << "double jest możliwy tylko gdy masz dwie karty\n"; //gra właściwa
+                   
+                   
+                   fields[j].add(deck[counter++]);		//do kalkulatora
+                    fields[j].print();
+
+                }
                 break;
             }
-            case 's': {
+            case 's': {			//stand
                 std::cout << "bez kart\n";
                 out = true;
                 break;
             }
-            case 'a' : {
+            case 'a' : {	//split
 
 
                 if(fields[j].can_split() == true) {

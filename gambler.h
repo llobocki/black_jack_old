@@ -25,13 +25,17 @@
 */
 
 
-#ifndef GAMBLER_H
-#define GAMBLER_H
-
 #include "vector"
 
 #include "player.h"
 #include "dealer.h"
+
+#include "basic_strategy.h"
+
+#ifndef GAMBLER_H
+#define GAMBLER_H
+
+
 
 class Gambler
 {
@@ -62,13 +66,15 @@ public:
 
     bool check_black_jack();
 
-    void game_gambler(std::vector<Card> &deck, int &counter);
+    void game_gambler(std::vector<Card> &deck, const Dealer dealer, int &counter);
 
     bool too_many();
 
     void result(const Dealer dealer);
     
     void double_card(std::vector< Card >& deck, int& counter, const int i, bool &out);
+    
+    
 };
 
 #endif // GAMBLER_H

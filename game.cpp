@@ -33,9 +33,9 @@
 
 
 void start(std::vector<Card> &deck) {
-    int x;
-    std::cout << "Podaj liczbę decków:\n";		//do uzupełnienia
-    std::cin >> x;
+    int x = 6;
+    std::cout << "Podaj liczbę decków:\n";		//gra właściwa;
+//     std::cin >> x;
     
     Card::Color c = Card::clubs;
     Card::Value v = Card::A;
@@ -101,13 +101,13 @@ void player_game(std::vector< Card >& deck, Gambler& gambler, int& counter);
 
 void start_hand(std::vector< Card >& deck, Dealer& dealer, Gambler &gambler, int &counter, const int end) {
 
-      int nr_fields;
-      int bet;
+      int nr_fields = 1; //kalkulator
+      int bet = 10;
 
     while (counter < end) {
-
-      std::cout << "podaj ilość pól:\n";
-      std::cin >>nr_fields;
+//						gra właściwa
+//       std::cout << "podaj ilość pól:\n";
+//       std::cin >>nr_fields;
       
           
 
@@ -117,10 +117,10 @@ void start_hand(std::vector< Card >& deck, Dealer& dealer, Gambler &gambler, int
 	break;
       }
       else{
-	
-	std::cout << "podaj bet:\n";
-	std::cin >> bet;
-	
+		//			gra właściwa
+// 	std::cout << "podaj bet:\n";
+// 	std::cin >> bet;
+// 	
         dealer.reset();
 //         player.reset();
 
@@ -166,7 +166,7 @@ void start_hand(std::vector< Card >& deck, Dealer& dealer, Gambler &gambler, int
 
         }
         else {
-            gambler.game_gambler(deck, counter);	//w przeciwnym wypadku standardowa gra
+            gambler.game_gambler(deck, dealer, counter);	//w przeciwnym wypadku standardowa gra
             dealer_game(deck, dealer, gambler, counter);
 
         }
@@ -268,15 +268,15 @@ void game(std::vector< Card >& deck, Dealer& dealer, Gambler& gambler)
 
     int counter = 0; //licznik dla kart
 
-    int all_games;
+    int all_games = 1;
     int nr_game = 0;
 
     start(deck);
 
     int end = deck.size()*2/3;
 
-    std::cout << "podaj liczbę gier:\n";		//do uzupełnienia
-    std::cin >> all_games;
+    std::cout << "podaj liczbę gier:\n";		//gra właściwa
+//     std::cin >> all_games;
 
     while (nr_game ++ < all_games) {
         shuffle(deck);

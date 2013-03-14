@@ -130,9 +130,11 @@ bool Person::can_split()
 //
 //     }
 // int x = cards[0].get_value
-    std::cout << "rozmiar wektora: " << cards.size() << '\n';
-    std::cout << "pierwsza karta: " << cards[0].get_value() << '\n';
-    std::cout << "druga karta: " << cards[1].get_value() << '\n';
+
+
+//     std::cout << "rozmiar wektora: " << cards.size() << '\n';
+//     std::cout << "pierwsza karta: " << cards[0].get_value() << '\n';
+//     std::cout << "druga karta: " << cards[1].get_value() << '\n';
 
     return (cards.size() == 2 && (cards[0].get_value() == cards[1].get_value()) && split < 4) ? true : false;
 }
@@ -171,3 +173,7 @@ void Person::only_21()
   black_jack = false;
 }
 
+bool Person::ace_soft() const
+{
+  return soft_ace;
+}

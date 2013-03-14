@@ -70,6 +70,8 @@ public:
     
     Card back_card();
     
+    bool ace_soft() const;
+    
     
 
 };
