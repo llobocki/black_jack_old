@@ -39,7 +39,8 @@ private:
     int value;
 //     int two_cards;
 
-    bool split;
+    int split;
+    
     bool black_jack;
     bool soft_ace;
 
@@ -49,6 +50,9 @@ public:
 
     int get_cards() const;
     bool get_black_jack() const;
+   
+    void only_21();
+   
 //     void check_black_jack();
     void reset();
 
@@ -57,6 +61,16 @@ public:
     virtual void print();
 
     bool can_split();
+    bool split_aces();
+    
+    int get_size() const;
+    
+    void set_split();
+    int get_split() const;
+    
+    Card back_card();
+    
+    
 
 };
 

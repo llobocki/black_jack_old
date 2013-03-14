@@ -27,11 +27,16 @@
 
 #include "game.h"
 
+#include "fstream"
+#include "stdlib.h"
+
 
 
 void start(std::vector<Card> &deck) {
-    int x = 6;
-    std::cout << "Podaj liczbę decków: " << x << "\n";		//do uzupełnienia
+    int x;
+    std::cout << "Podaj liczbę decków:\n";		//do uzupełnienia
+    std::cin >> x;
+    
     Card::Color c = Card::clubs;
     Card::Value v = Card::A;
 //   int licznik = 0;
@@ -39,11 +44,22 @@ void start(std::vector<Card> &deck) {
         for (int i = 1; i < 5; ++i)
             for (int j = 1; j < 14; ++j)
                 deck.push_back(Card(c=Card::Color(i),v=Card::Value(j)));
+	    
+
 }
 
 void shuffle(std::vector<Card> &deck) {
     std::srand(std::time(0));
     std::random_shuffle(deck.begin(),deck.end());
+    
+    
+    /**********************************
+     * plik z kartami
+     *********************************/
+//     std::string nazwa = "dane";
+//     std::ofstream ost(nazwa.c_str());
+//     for (int h = 0; h < deck.size(); ++h)
+//         ost << deck[h].get_value() << '\n';
 
 }
 
@@ -84,19 +100,33 @@ void player_game(std::vector< Card >& deck, Gambler& gambler, int& counter);
 // void gambler_game(std::vector< Card >& deck, Gambler& gambler, Player& player, int& counter);
 
 void start_hand(std::vector< Card >& deck, Dealer& dealer, Gambler &gambler, int &counter, const int end) {
-    int bet = 10;
 
-    int nr_fields = 1;
+      int nr_fields;
+      int bet;
 
     while (counter < end) {
-        std::cout << "podaj ilość pól:\n";
 
+      std::cout << "podaj ilość pól:\n";
+      std::cin >>nr_fields;
+      
+          
+
+
+      if(nr_fields == 0){
+	
+	break;
+      }
+      else{
+	
+	std::cout << "podaj bet:\n";
+	std::cin >> bet;
+	
         dealer.reset();
 //         player.reset();
 
         gambler.reset();
 
-        gambler.create_field(nr_fields);
+        gambler.create_field(nr_fields, bet);
 
 
 //         player.add(deck[counter++]);
@@ -122,7 +152,9 @@ void start_hand(std::vector< Card >& deck, Dealer& dealer, Gambler &gambler, int
 // 	  if (gambler
 // 	}
 
-        if (gambler.check_black_jack() ==  true) {
+        //należy dopracować even money i insurance
+
+        if (gambler.check_black_jack() ==  true) {	//sprawdzenie black jacków graca i odpowiednie zachowanie krupiera
             if (dealer.get_cards()==1 || dealer.get_cards()==10) {
 //                 return;
 //             }
@@ -134,12 +166,13 @@ void start_hand(std::vector< Card >& deck, Dealer& dealer, Gambler &gambler, int
 
         }
         else {
-            gambler.game_gambler(deck, counter);
+            gambler.game_gambler(deck, counter);	//w przeciwnym wypadku standardowa gra
             dealer_game(deck, dealer, gambler, counter);
 
         }
 
         gambler.result(dealer);
+      }
 
 //         if (player.get_black_jack() == true) {	//obsługa black jacka gracza
 //             std::cout << "gracz black jack\n";
@@ -235,15 +268,15 @@ void game(std::vector< Card >& deck, Dealer& dealer, Gambler& gambler)
 
     int counter = 0; //licznik dla kart
 
-    int all_games = 1;
+    int all_games;
     int nr_game = 0;
 
     start(deck);
 
     int end = deck.size()*2/3;
 
-    std::cout << "podaj liczbę gier: " << all_games << "\n";		//do uzupełnienia
-
+    std::cout << "podaj liczbę gier:\n";		//do uzupełnienia
+    std::cin >> all_games;
 
     while (nr_game ++ < all_games) {
         shuffle(deck);
@@ -251,7 +284,8 @@ void game(std::vector< Card >& deck, Dealer& dealer, Gambler& gambler)
         start_hand(deck,dealer,gambler,counter,end);
     }
 
-    std::cout << "ilość kart: " << counter << "\nwynik gracza: " <<  gambler.get_bankroll() << '\n';
+    std::cout << "ilość kart: " << counter << "\n";
+    std::cout << "wynik gracza: " <<  gambler.get_bankroll() << '\n';
 
 }
 

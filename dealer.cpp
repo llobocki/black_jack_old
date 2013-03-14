@@ -57,10 +57,11 @@ Dealer::Dealer() :Person()
 void Dealer::print()
 {
     std::cout << "\t\t\tkrupier: ";
-    if (get_cards() < 22)
-        std::cout << get_cards() << '\n';
-    else
-        std::cout << "za dużo\n";
+    Person::print();
+//     if (get_cards() < 22)
+//         std::cout << get_cards() << '\n';
+//     else
+//         std::cout << "za dużo\n";
 }
 
 // void Dealer::add(const Card card)

@@ -29,6 +29,7 @@
 #define GAMBLER_H
 
 #include "vector"
+
 #include "player.h"
 #include "dealer.h"
 
@@ -40,9 +41,13 @@ private:
 public:
     Gambler();
 //   ~ Gambler();
-    void create_field(int i);
+    void create_field(int i, const int bet);
 
     int get_bankroll() const;
+    void set_bankroll(int i);
+    
+//     void up_bankroll(int i);
+//     void down_bankroll(int i);
 
     void loose(int bet);
     void win(int bet);
@@ -62,6 +67,8 @@ public:
     bool too_many();
 
     void result(const Dealer dealer);
+    
+    void double_card(std::vector< Card >& deck, int& counter, const int i, bool &out);
 };
 
 #endif // GAMBLER_H

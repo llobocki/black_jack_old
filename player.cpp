@@ -37,6 +37,12 @@ Player::Player() :Person()
 //     soft_ace = false;
 }
 
+
+Player::Player(int b) :Person()
+{
+  bet = b;
+}
+
 // Player::~Player()
 // {
 //
@@ -53,10 +59,11 @@ Player::Player() :Person()
 void Player::print()
 {
     std::cout << "\t\t\tgracz: ";
-    if (get_cards() < 22)
-        std::cout << get_cards() << '\n';
-    else
-        std::cout << "za dużo\n";
+    Person::print();
+//     if (get_cards() < 22)
+//         std::cout << get_cards() << '\n';
+//     else
+//         std::cout << "za dużo\n";
 
 }
 
@@ -105,4 +112,8 @@ int Player::get_bet() const
 // {
 //     std::cout << "remis\n";
 // }
+void Player::double_bet()
+{
+  bet *= 2;
+}
 

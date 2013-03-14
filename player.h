@@ -44,13 +44,14 @@ class Player : public Person
 
 public:
     Player();
+    Player(int b);
 //     virtual ~Player();
 
 //     int get_cards() const;
 //     bool get_black_jack() const;
 
     int get_bet() const;
-    int set_bet(int);
+    void double_bet();
 
 //     void check_black_jack();
 

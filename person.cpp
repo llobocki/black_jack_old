@@ -52,7 +52,7 @@ Person::Person()
     value = 0;
 
 //     two_cards = 0;
-    split = false;
+    split = 0;
     black_jack = false;
     soft_ace = false;
 }
@@ -84,7 +84,7 @@ void Person::reset()
     cards.clear();
     value = 0;
 //     two_cards = 0;
-    split = false;
+    split = 0;
     soft_ace = false;
     black_jack = false;
 }
@@ -100,7 +100,7 @@ void Person::add(const Card card)
 
 //     use_ace(soft_ace,value);
 
-    if (cards.size() == 2 && value == 21 && split == false)
+    if (cards.size() == 2 && value == 21 && split == 0)
     {
         black_jack = true;
 //         std::cout << "krupier black_jack\n";
@@ -116,7 +116,7 @@ void Person::add(const Card card)
 
 void Person::print()
 {
-    std::cout << "\t\t\tgracz: ";
+//     std::cout << "\t\t\tgracz: ";
     if (value < 22)
         std::cout << value << '\n';
     else
@@ -126,9 +126,48 @@ void Person::print()
 
 bool Person::can_split()
 {
-    if (cards.size() == 2 && cards[0].get_value() == cards[1].get_value()) {
+//     if (cards.size() == 2 && cards[0].get_value() == cards[1].get_value() && split > 4) {
+//
+//     }
+// int x = cards[0].get_value
+    std::cout << "rozmiar wektora: " << cards.size() << '\n';
+    std::cout << "pierwsza karta: " << cards[0].get_value() << '\n';
+    std::cout << "druga karta: " << cards[1].get_value() << '\n';
 
-    }
+    return (cards.size() == 2 && (cards[0].get_value() == cards[1].get_value()) && split < 4) ? true : false;
 }
 
+
+int Person::get_size() const
+{
+    return cards.size();
+}
+
+int Person::get_split() const
+{
+    return split;
+}
+
+void Person::set_split()
+{
+    split++;
+}
+
+Card Person::back_card()
+{
+    Card c = cards.back();
+    value -= c.get_value();
+    cards.pop_back();
+    return c;
+}
+
+bool Person::split_aces()
+{
+  return (cards[0].get_value() == 1 && cards[1].get_value() == 1) ? true : false;
+}
+
+void Person::only_21()
+{
+  black_jack = false;
+}
 
