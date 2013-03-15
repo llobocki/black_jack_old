@@ -34,9 +34,6 @@ void use_soft_ace(bool &soft_ace, int &cards)
         cards += 10;
         soft_ace = true;
     };
-//   else if (soft_ace == true && cards > 11){
-
-//   }
 }
 
 void use_ace(bool &soft_ace, int &cards) {
@@ -51,27 +48,18 @@ Person::Person()
 {
     value = 0;
 
-//     two_cards = 0;
     split = 0;
     black_jack = false;
     soft_ace = false;
 }
 
-// Person::~Person()
-// {
-//   std::cout << "niszczenie\n";
-// }
 
 int Person::get_cards() const
 {
     return value;
 }
 
-// void Person::check_black_jack()
-// {
-//     if (value == 21) black_jack = true;
-//
-// }
+
 
 bool Person::get_black_jack() const
 {
@@ -98,17 +86,12 @@ void Person::add(const Card card)
     value += card.get_value();
     if (card.get_value() == 1) use_soft_ace(soft_ace,value); 		//test
 
-//     use_ace(soft_ace,value);
 
     if (cards.size() == 2 && value == 21 && split == 0)
     {
         black_jack = true;
-//         std::cout << "krupier black_jack\n";
     }
 
-//     if (cards.size() == 2 && cards[0].get_value() == cards[1].get_value()){
-//       split = true;
-//     }
 
     use_ace(soft_ace,value);
 }
@@ -116,7 +99,6 @@ void Person::add(const Card card)
 
 void Person::print()
 {
-//     std::cout << "\t\t\tgracz: ";
     if (value < 22)
         std::cout << value << '\n';
     else
@@ -126,16 +108,6 @@ void Person::print()
 
 bool Person::can_split()
 {
-//     if (cards.size() == 2 && cards[0].get_value() == cards[1].get_value() && split > 4) {
-//
-//     }
-// int x = cards[0].get_value
-
-
-//     std::cout << "rozmiar wektora: " << cards.size() << '\n';
-//     std::cout << "pierwsza karta: " << cards[0].get_value() << '\n';
-//     std::cout << "druga karta: " << cards[1].get_value() << '\n';
-
     return (cards.size() == 2 && (cards[0].get_value() == cards[1].get_value()) && split < 4) ? true : false;
 }
 
@@ -165,15 +137,15 @@ Card Person::back_card()
 
 bool Person::split_aces()
 {
-  return (cards[0].get_value() == 1 && cards[1].get_value() == 1) ? true : false;
+    return (cards[0].get_value() == 1 && cards[1].get_value() == 1) ? true : false;
 }
 
 void Person::only_21()
 {
-  black_jack = false;
+    black_jack = false;
 }
 
 bool Person::ace_soft() const
 {
-  return soft_ace;
+    return soft_ace;
 }

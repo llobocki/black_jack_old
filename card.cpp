@@ -29,8 +29,6 @@
 #include <iostream>
 
 
-// using std::cout;
-
 Card::Card(Card::Color c, Card::Value v)
 {
     color = c;

@@ -29,8 +29,8 @@
 
 Decision::Decision(char c, int i)
 {
-  decision = c;
-  cards = i;
+    decision = c;
+    cards = i;
 }
 
 Decision::Decision()
@@ -41,6 +41,6 @@ Decision::Decision()
 
 char Decision::get(int i) const
 {
-  return decision;
+    return decision;
 }
 

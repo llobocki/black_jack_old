@@ -25,7 +25,6 @@
 */
 
 #include "card.h"
-// #include "option.h"
 #include "person.h"
 
 #ifndef DEALER_H
@@ -35,22 +34,11 @@
 
 class Dealer : public Person
 {
-//     int cards;
-//     int two_cards;
-
-//     bool black_jack;
-//     bool soft_ace;
+;
 public:
     Dealer();
-//     virtual ~Dealer();
 
-//     void reset();
-//     void add(const Card card);
     void print();
-
-//     int get() const;
-//     bool get_black_jack() const;
-
 
 };
 

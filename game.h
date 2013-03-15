@@ -38,7 +38,6 @@
 #include "dealer.h"
 #include "player.h"
 #include "gambler.h"
-// #include "option.h"
 
 class Game
 {

@@ -35,34 +35,18 @@
 
 class Player : public Person
 {
-//     int cards;
+private:
     int bet;
-
-//     bool black_jack;
-//     bool soft_ace;
-
-
 public:
     Player();
     Player(int b);
-//     virtual ~Player();
 
-//     int get_cards() const;
-//     bool get_black_jack() const;
 
     int get_bet() const;
     void double_bet();
 
-//     void check_black_jack();
 
     void print();
-//     void add(const Card card);
-//     void reset();
-
-//     void loose(const int bet);
-//     void win(const int bet);
-//     void push();
-
 };
 
 #endif // PLAYER_H

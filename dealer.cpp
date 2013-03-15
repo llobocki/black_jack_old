@@ -30,56 +30,19 @@
 
 Dealer::Dealer() :Person()
 {
-//     cards = 0;
-//     two_cards = 0;
-//     soft_ace = false;
-//     black_jack = false;
+
 }
 
-// Dealer::~Dealer()
-// {
-//
-// }
 
-// void Dealer::reset()
-// {
-//     cards = 0;
-//     two_cards = 0;
-//     soft_ace = false;
-//     black_jack = false;
-// }
-
-// int Dealer::get() const
-// {
-//     return cards;
-// }
 
 void Dealer::print()
 {
+
     std::cout << "\t\t\tkrupier: ";
     Person::print();
-//     if (get_cards() < 22)
-//         std::cout << get_cards() << '\n';
-//     else
-//         std::cout << "za dużo\n";
+
+
 }
 
-// void Dealer::add(const Card card)
-// {
-//
-//     card.print();
-//     if (card.get_value() == 1) option::soft_ace(soft_ace,cards); 		//test
-//
-//     cards += card.get_value();
-//     two_cards++;
-//
-//     if (two_cards == 2 && cards == 21) black_jack = true;
-//
-//     option::use_ace(soft_ace,cards);
-// }
 
-// bool Dealer::get_black_jack() const
-// {
-//     return black_jack;
-// }
 

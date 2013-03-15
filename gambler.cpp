@@ -33,13 +33,7 @@
 Gambler::Gambler()
 {
     bankroll = 0;
-//     fields;
 }
-
-// Gambler::~Gambler()
-// {
-//
-// }
 
 
 int Gambler::get_bankroll() const
@@ -53,7 +47,6 @@ void Gambler::create_field(int i, const int bet)
     Player p(bet);
     for (int j = 0; j < i; ++j) {
         fields.push_back(p);
-//         std::cout << "rozmaira wektora: " << fields.size() << '\n';
     }
 }
 
@@ -61,14 +54,12 @@ void Gambler::loose(int bet)
 {
     std::cout << "porażka\n";
     bankroll -= bet;
-//     bankroll -= bet;
 }
 
 void Gambler::win(int bet)
 {
     std::cout << "zwycięstwo\n";
     bankroll += bet;
-//     bankroll += bet;
 }
 
 void Gambler::push()
@@ -106,8 +97,7 @@ void Gambler::result(const Dealer dealer)
 void Gambler::reset()
 {
     fields.clear();
-//     for (int j = 0; j < fields.size(); ++j)
-//         fields[j].reset();
+;
 }
 
 void Gambler::one_card(std::vector< Card >& deck, int& counter)
@@ -185,8 +175,7 @@ void Gambler::game_gambler(std::vector< Card >& deck, const Dealer dealer, int& 
             else
                 bufor = Basic_strategy::move_normal(fields[j].get_cards(), dealer.get_cards());
 
-
-            std::cout << bufor << '\n';
+/*************************************************************/
 
 
             switch(bufor) {
@@ -197,18 +186,17 @@ void Gambler::game_gambler(std::vector< Card >& deck, const Dealer dealer, int& 
             }
             case 'd': {		//double
                 if (fields[j].get_size() == 2) {
-                    std::cout << "double - tylko jedna karta\n";
+                  std::cout << "double - tylko jedna karta\n";
                     fields[j].double_bet();
                     fields[j].add(deck[counter++]);
                     fields[j].print();
                     out = true;
-//             player.print();
                 }
                 else {
-//                     std::cout << "double jest możliwy tylko gdy masz dwie karty\n"; //gra właściwa
-                   
-                   
-                   fields[j].add(deck[counter++]);		//do kalkulatora
+                    std::cout << "double jest możliwy tylko gdy masz dwie karty\n"; //gra właściwa
+
+
+                    fields[j].add(deck[counter++]);		//do kalkulatora
                     fields[j].print();
 
                 }
@@ -223,11 +211,6 @@ void Gambler::game_gambler(std::vector< Card >& deck, const Dealer dealer, int& 
 
 
                 if(fields[j].can_split() == true) {
-
-// 		 std::vector<int>::iterator it;
-// 		 it = fields.begin()+j;
-
-// 		 fields.insert(it, fields[j]);
 
                     if(fields[j].split_aces()) {
                         std::cout << "split asów - jeden split, jedna karta, bez black jacka\n";
@@ -271,7 +254,7 @@ void Gambler::game_gambler(std::vector< Card >& deck, const Dealer dealer, int& 
                 }
                 else
                     std::cout << "nie możesz już splitować kart\n";
-                break;
+                    break;
             }
             case 'g' : {
 
@@ -292,7 +275,7 @@ void Gambler::game_gambler(std::vector< Card >& deck, const Dealer dealer, int& 
 //             fields[j].print();
 //         }
 //     }
-
+/**********************************************************/
 }
 
 bool Gambler::too_many()

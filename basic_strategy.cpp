@@ -26,9 +26,8 @@
 
 
 #include "basic_strategy.h"
-// #include "player.h"
 
-namespace Basic_strategy{
+namespace Basic_strategy {
 const char d_hit = 'f';
 const char d_dou =  'd';
 const char d_sta = 's';
@@ -75,9 +74,9 @@ const Decision tab_soft_ace[8][10]
 
 const Decision tab_split[10][10] {
     (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), //a-a
-    (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_hit), (d_hit), (d_hit), (d_hit),	
-    (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_hit), (d_hit), (d_hit), (d_hit),	
-    (d_hit), (d_hit), (d_hit), (d_spl), (d_spl), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),	
+    (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_hit), (d_hit), (d_hit), (d_hit),
+    (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_hit), (d_hit), (d_hit), (d_hit),
+    (d_hit), (d_hit), (d_hit), (d_spl), (d_spl), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),
     (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_hit), (d_hit),	//10
     (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),
     (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_hit), (d_hit), (d_hit), (d_hit),//14
@@ -86,19 +85,19 @@ const Decision tab_split[10][10] {
     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta)//20
 };
 
-char move_split(int x, int y){
-  
-  return tab_split[x/2 - 1 ][y-2].get(0);
+char move_split(int x, int y) {
+
+    return tab_split[x/2 - 1 ][y-2].get(0);
 }
 
 char move_ace(int x, int y)
 {
-  return tab_soft_ace[x-13][y-2].get(0);
+    return tab_soft_ace[x-13][y-2].get(0);
 }
 
 char move_normal(int x, int y)
 {
-  return tab_normal[x-5][y-2].get(0);
+    return tab_normal[x-5][y-2].get(0);
 }
 
 

@@ -30,30 +30,26 @@
 
 #include "card.h"
 #include "vector"
-// #include "option.h"
 
 class Person
 {
 private:
     std::vector<Card> cards;
     int value;
-//     int two_cards;
 
     int split;
-    
+
     bool black_jack;
     bool soft_ace;
 
 public:
     Person();
-//     virtual ~Person();
 
     int get_cards() const;
     bool get_black_jack() const;
-   
+
     void only_21();
-   
-//     void check_black_jack();
+
     void reset();
 
     virtual void add(const Card card);
@@ -62,17 +58,17 @@ public:
 
     bool can_split();
     bool split_aces();
-    
+
     int get_size() const;
-    
+
     void set_split();
     int get_split() const;
-    
+
     Card back_card();
-    
+
     bool ace_soft() const;
-    
-    
+
+
 
 };
 

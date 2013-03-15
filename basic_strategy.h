@@ -30,104 +30,10 @@
 #define BASIC_STRATEGY_H
 
 
-namespace Basic_strategy{
-  char move_split(int x, int y);
-  char move_ace(int x, int y);
-  char move_normal(int x, int y);
-// const char d_hit = 'f';
-// const char d_dou =  'd';
-// const char d_sta = 's';
-// const char d_spl = 'a';
-// 
-// 
-// class Basic_strategy
-// {
-// };
-// 
-// const Decision normal[16][10]
-// {
-// //2		3	4	5	6	  7	    8		9	10	ace
-//     (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), //5
-//     (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), //6
-//     (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),
-//     (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),
-//     (d_hit), (d_dou), (d_dou), (d_dou), (d_dou), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), //9
-//     (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_hit), (d_hit),//10
-//     (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_hit), (d_hit),
-//     (d_hit), (d_hit), (d_sta), (d_sta), (d_sta), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),//12
-//     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),
-//     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),
-//     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),//15
-//     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),//16
-//     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta),//17
-//     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta),
-//     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta),
-//     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta),//20
-// };
-// 
-// 
-// const Decision soft_ace[8][10]
-// {
-//     (d_hit), (d_hit), (d_hit), (d_dou), (d_dou), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),	//2
-//     (d_hit), (d_hit), (d_hit), (d_dou), (d_dou), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),
-//     (d_hit), (d_hit), (d_dou), (d_dou), (d_dou), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),//4
-//     (d_hit), (d_hit), (d_dou), (d_dou), (d_dou), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),
-//     (d_hit), (d_dou), (d_dou), (d_dou), (d_dou), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),
-//     (d_sta), (d_dou), (d_dou), (d_dou), (d_dou), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),//7
-//     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta),
-//     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta),
-// };
-// 
-// const Decision split[10][10] {
-//     (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), //a-a
-//     (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_hit), (d_hit), (d_hit), (d_hit),	
-//     (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_hit), (d_hit), (d_hit), (d_hit),	
-//     (d_hit), (d_hit), (d_hit), (d_spl), (d_spl), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),	
-//     (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_hit), (d_hit),	//5
-//     (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),
-//     (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_hit), (d_hit), (d_hit), (d_hit),//7
-//     (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl),
-//     (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_sta), (d_spl), (d_spl), (d_sta), (d_sta),
-//     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta)
-// };
-// 
-  
+namespace Basic_strategy {
+char move_split(int x, int y);
+char move_ace(int x, int y);
+char move_normal(int x, int y);
 }
-// char move(const Decision table[][10],int x, int y){
-//   return table[x][y].get(0);
-// }
-
-//				dopracować ????
-// const Decision
-// const char d_hit = 'f';
-// const char d_dou =  'd';
-// const char d_sta = 's';
-// const char d_spl = 'a';
-//
-// class Basic_strategy
-// {
-// };
-//
-// const Decision normal[16][10]
-// {
-// //2		3	4	5	6	  7	    8		9	10	ace
-//     (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), //5
-//     (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), //6
-//     (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),
-//     (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),
-//     (d_hit), (d_dou), (d_dou), (d_dou), (d_dou), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), //9
-//     (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_hit), (d_hit),//10
-//     (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_hit), (d_hit),
-//     (d_hit), (d_hit), (d_sta), (d_sta), (d_sta), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),//12
-//     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),
-//     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),
-//     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),//15
-//     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),//16
-//     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta),//17
-//     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta),
-//     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta),
-//     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta),//20
-// };
-
 
 #endif // BASIC_STRATEGY_H

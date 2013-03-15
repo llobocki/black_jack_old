@@ -31,8 +31,8 @@
 class Decision
 {
 private:
-  char decision;
-  int cards;
+    char decision;
+    int cards;
 public:
     Decision(char c, int i = 0);
     Decision();
