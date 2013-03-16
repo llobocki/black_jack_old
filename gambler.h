@@ -31,6 +31,7 @@
 #include "dealer.h"
 
 #include "basic_strategy.h"
+#include "hi_low_i.h"
 
 #ifndef GAMBLER_H
 #define GAMBLER_H
@@ -56,7 +57,7 @@ public:
     void push();
 
     void reset();
-    void one_card(std::vector<Card> &deck, int &counter);
+    void one_card(std::vector<Card> &deck, int &counter, int & actual);
     void print();
 
     void get_black_jack();
@@ -64,13 +65,13 @@ public:
 
     bool check_black_jack();
 
-    void game_gambler(std::vector<Card> &deck, const Dealer dealer, int &counter);
+    void game_gambler(std::vector< Card >& deck, const Dealer dealer, int& counter, int& actual, const int nr_decks);
 
     bool too_many();
 
-    void result(const Dealer dealer);
+    void result(const Dealer dealer, int &hands);
 
-    void double_card(std::vector< Card >& deck, int& counter, const int i, bool &out);
+    void double_card(std::vector< Card >& deck, int& counter, const int i, bool& out, int& actual);
 
 
 };

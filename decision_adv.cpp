@@ -25,37 +25,50 @@
 */
 
 
-#include "player.h"
-#include "iostream"
+#include "decision_adv.h"
 
-Player::Player() :Person()
+Decision_adv::Decision_adv(char f, int c, char s)
+:Decision(f,c)
 {
-    bet = 10;
+//     first = f;
+//     cards = c;
+    second = s;
 }
 
 
-Player::Player(int b) :Person()
+// Decision_adv::Decision_adv(const Decision_adv& d)
+// {
+//     first = d.first;
+//     cards = d.cards;
+//     second = d.second;
+// }
+
+Decision_adv::Decision_adv()
 {
-    bet = b;
+   
 }
 
-void Player::print()
+// Decision_adv& Decision_adv::operator=(const Decision_adv& d)
+// {
+//  first = d.first;
+//     cards = d.cards;
+//     second = d.second;
+// }
+
+
+// char Decision_adv::get_first() const
+// {
+//     return first;
+// }
+// 
+
+
+// int Decision_adv::get_cards() const
+// {
+//     return cards;
+// }
+
+char Decision_adv::get_second() const
 {
-
-//     std::cout << "\t\t\tgracz: ";
-//     Person::print();
-
-
+    return second;
 }
-
-
-int Player::get_bet() const
-{
-    return bet;
-}
-
-void Player::double_bet()
-{
-    bet *= 2;
-}
-

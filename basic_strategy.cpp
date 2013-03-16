@@ -28,19 +28,19 @@
 #include "basic_strategy.h"
 
 namespace Basic_strategy {
-const char d_hit = 'f';
-const char d_dou =  'd';
-const char d_sta = 's';
-const char d_spl = 'a';
+char d_hit = 'f';
+char d_dou =  'd';
+char d_sta = 's';
+char d_spl = 'a';
 
 
-class Basic_strategy
+// class Basic_strategy
+// {
+// };
+
+Decision tab_normal[16][10]
 {
-};
-
-const Decision tab_normal[16][10]
-{
-//2		3	4	5	6	  7	    8		9	10	ace
+//    2		3	4	5	6	  7	    8		9	10	ace
     (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), //5
     (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), //6
     (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),
@@ -60,7 +60,7 @@ const Decision tab_normal[16][10]
 };
 
 
-const Decision tab_soft_ace[8][10]
+Decision tab_soft_ace[8][10]
 {
     (d_hit), (d_hit), (d_hit), (d_dou), (d_dou), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),	//13
     (d_hit), (d_hit), (d_hit), (d_dou), (d_dou), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),
@@ -72,7 +72,7 @@ const Decision tab_soft_ace[8][10]
     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta),//20
 };
 
-const Decision tab_split[10][10] {
+Decision tab_split[10][10] {
     (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), //a-a
     (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_hit), (d_hit), (d_hit), (d_hit),
     (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_hit), (d_hit), (d_hit), (d_hit),
@@ -82,22 +82,22 @@ const Decision tab_split[10][10] {
     (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_hit), (d_hit), (d_hit), (d_hit),//14
     (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl),//16
     (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_sta), (d_spl), (d_spl), (d_sta), (d_sta),//18
-    (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta)//20
+    (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta),//20
 };
 
 char move_split(int x, int y) {
 
-    return tab_split[x/2 - 1 ][y-2].get(0);
+    return tab_split[x/2 - 1 ][y-2].get_first();
 }
 
 char move_ace(int x, int y)
 {
-    return tab_soft_ace[x-13][y-2].get(0);
+    return tab_soft_ace[x-13][y-2].get_first();
 }
 
 char move_normal(int x, int y)
 {
-    return tab_normal[x-5][y-2].get(0);
+    return tab_normal[x-5][y-2].get_first();
 }
 
 

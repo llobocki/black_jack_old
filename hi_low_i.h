@@ -25,37 +25,18 @@
 */
 
 
-#include "player.h"
-#include "iostream"
 
-Player::Player() :Person()
-{
-    bet = 10;
+#include "decision_adv.h"
+
+#ifndef HI_LOW_I_H
+#define HI_LOW_I_H
+
+
+
+namespace Hi_low_I{
+char move_split(int x, int y,int z);
+char move_ace(int x, int y, int z);
+char move_normal(int x, int y, int z);
 }
 
-
-Player::Player(int b) :Person()
-{
-    bet = b;
-}
-
-void Player::print()
-{
-
-//     std::cout << "\t\t\tgracz: ";
-//     Person::print();
-
-
-}
-
-
-int Player::get_bet() const
-{
-    return bet;
-}
-
-void Player::double_bet()
-{
-    bet *= 2;
-}
-
+#endif // HI_LOW_I_H

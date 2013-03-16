@@ -41,6 +41,8 @@ private:
 
     bool black_jack;
     bool soft_ace;
+    
+//     int card_counter;
 
 public:
     Person();
@@ -52,7 +54,7 @@ public:
 
     void reset();
 
-    virtual void add(const Card card);
+    virtual void add(const Card card, int & actual);
 
     virtual void print();
 

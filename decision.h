@@ -28,15 +28,23 @@
 #ifndef DECISION_H
 #define DECISION_H
 
+
+
 class Decision
 {
 private:
-    char decision;
+    char first;
     int cards;
 public:
-    Decision(char c, int i = 0);
+    Decision(char d, int c = 0);
     Decision();
-    char get(int i) const;
+ 
+    
+    
+    
+    char get_first() const;
+    int get_cards() const;
+//     int get_value() const;
 };
 
 #endif // DECISION_H

@@ -25,37 +25,27 @@
 */
 
 
-#include "player.h"
-#include "iostream"
+#ifndef DECISION_ADV_H
+#define DECISION_ADV_H
 
-Player::Player() :Person()
+#include "decision.h"
+
+class Decision_adv : public Decision
 {
-    bet = 10;
-}
+private:
+//   char first;
+//   int cards;
+  char second;
+public: 
+    Decision_adv(char f, int c, char s);
+    Decision_adv();
+//     Decision_adv(const Decision_adv &d);
+//     Decision_adv & operator = (const Decision_adv &d);
+//     
+//     char get_first() const;
+//     int get_cards() const;
+    char get_second() const;
 
+};
 
-Player::Player(int b) :Person()
-{
-    bet = b;
-}
-
-void Player::print()
-{
-
-//     std::cout << "\t\t\tgracz: ";
-//     Person::print();
-
-
-}
-
-
-int Player::get_bet() const
-{
-    return bet;
-}
-
-void Player::double_bet()
-{
-    bet *= 2;
-}
-
+#endif // DECISION_ADV_H

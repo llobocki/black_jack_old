@@ -44,6 +44,7 @@ public:
     int get_colour() const;
     void print() const;
 
+    int cards_counter() const;
 };
 
 #endif // CARD_H

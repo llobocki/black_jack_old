@@ -27,10 +27,10 @@
 
 #include "decision.h"
 
-Decision::Decision(char c, int i)
+Decision::Decision(char d, int c)
 {
-    decision = c;
-    cards = i;
+    first = d;
+    cards = c;
 }
 
 Decision::Decision()
@@ -39,8 +39,18 @@ Decision::Decision()
 }
 
 
-char Decision::get(int i) const
+char Decision::get_first() const
 {
-    return decision;
+    return first;
 }
+
+int Decision::get_cards() const
+{
+  return cards;
+}
+
+// int Decision::get_value() const
+// {
+//   return cards;
+// }
 

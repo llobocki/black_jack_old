@@ -82,4 +82,14 @@ void Card::print() const
         std::cout << value << '\n';
 }
 
+int Card::cards_counter() const
+{
+  if (value > 1 && value < 7)
+    return 1;
+  else if (value > 6 && value < 10)
+    return 0;
+  else 
+    return -1;
+}
+
 

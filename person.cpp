@@ -51,6 +51,8 @@ Person::Person()
     split = 0;
     black_jack = false;
     soft_ace = false;
+    
+//     card_counter = 0;
 }
 
 
@@ -77,9 +79,11 @@ void Person::reset()
     black_jack = false;
 }
 
-void Person::add(const Card card)
+void Person::add(const Card card, int & actual)
 {
-    card.print();
+//     card.print();
+    
+    actual += card.cards_counter();
 
     cards.push_back(card);
 

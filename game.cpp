@@ -32,14 +32,14 @@
 
 
 
-void start(std::vector<Card> &deck) {
-    int x = 6;
-    std::cout << "Podaj liczbę decków:\n";		//gra właściwa;
-//     std::cin >> x;
+void start(std::vector<Card> &deck, int & nr_decks) {
+//     int x = 6;
+//     std::cout << "Podaj liczbę decków:\n";		//gra właściwa;
+// //     std::cin >> x;
 
     Card::Color c = Card::clubs;
     Card::Value v = Card::A;
-    for (int h = 0; h < x; ++h)
+    for (int h = 0; h < nr_decks; ++h)
         for (int i = 1; i < 5; ++i)
             for (int j = 1; j < 14; ++j)
                 deck.push_back(Card(c=Card::Color(i),v=Card::Value(j)));
@@ -64,15 +64,17 @@ void shuffle(std::vector<Card> &deck) {
 }
 
 
-void dealer_game(std::vector< Card >& deck, Dealer& dealer, Gambler& gambler, int& counter);
+void dealer_game(std::vector< Card >& deck, Dealer& dealer, Gambler& gambler, int& counter, int& actual);
 
 void player_game(std::vector< Card >& deck, Gambler& gambler, int& counter);
 
-void start_hand(std::vector< Card >& deck, Dealer& dealer, Gambler &gambler, int &counter, const int end) {
+void start_hand(std::vector< Card >& deck, Dealer& dealer, Gambler &gambler, int &counter, const int end, int &hands, int & actual, const int nr_decks) {
 
-    int nr_fields = 1; //kalkulator
+    int nr_fields = 1 	; //kalkulator
     int bet = 10;
 
+//     int card_counting = 0;
+    
     while (counter < end) {
 //						gra właściwa
 //       std::cout << "podaj ilość pól:\n";
@@ -97,15 +99,15 @@ void start_hand(std::vector< Card >& deck, Dealer& dealer, Gambler &gambler, int
             gambler.create_field(nr_fields, bet);
 
 
-            gambler.one_card(deck,counter);
+            gambler.one_card(deck,counter,actual);
 
-            dealer.add(deck[counter++]);
+            dealer.add(deck[counter++], actual);
 
-            gambler.one_card(deck,counter);
+            gambler.one_card(deck,counter, actual);
 
-            gambler.print();
+//             gambler.print();
 
-            dealer.print();
+//             dealer.print();
 
 
             //należy dopracować even money i insurance
@@ -113,19 +115,19 @@ void start_hand(std::vector< Card >& deck, Dealer& dealer, Gambler &gambler, int
             if (gambler.check_black_jack() ==  true) {	//sprawdzenie black jacków graca i odpowiednie zachowanie krupiera
                 if (dealer.get_cards()==1 || dealer.get_cards()==10) {
 
-                    dealer.add(deck[counter++]);
+                    dealer.add(deck[counter++], actual);
 
                 }
 
 
             }
             else {
-                gambler.game_gambler(deck, dealer, counter);	//w przeciwnym wypadku standardowa gra
-                dealer_game(deck, dealer, gambler, counter);
+                gambler.game_gambler(deck, dealer, counter,actual, nr_decks);	//w przeciwnym wypadku standardowa gra
+                dealer_game(deck, dealer, gambler, counter,actual);
 
             }
 
-            gambler.result(dealer);
+            gambler.result(dealer, hands);
         }
 
     }
@@ -133,12 +135,12 @@ void start_hand(std::vector< Card >& deck, Dealer& dealer, Gambler &gambler, int
 
 
 
-void dealer_game(std::vector< Card >& deck, Dealer& dealer, Gambler& gambler, int& counter) {
+void dealer_game(std::vector< Card >& deck, Dealer& dealer, Gambler& gambler, int& counter,int &actual) {
     if (gambler.too_many() == true)
         return;
     else
         while (dealer.get_cards() < 17) {
-            dealer.add(deck[counter++]);
+            dealer.add(deck[counter++],actual);
 
             dealer.print();
         }
@@ -153,22 +155,33 @@ void game(std::vector< Card >& deck, Dealer& dealer, Gambler& gambler)
 
     int counter = 0; //licznik dla kart
 
-    int all_games = 100;
+    int all_games = 100000;
     int nr_game = 0;
 
-    start(deck);
+//     int cards_counting = 0;
+    int actual = 0;
+//     int real = 0;
+    
+    int nr_decks = 6;
+    
+    start(deck, nr_decks);
 
     int end = deck.size()*2/3;
+    
+    int hands = 0;
 
     std::cout << "podaj liczbę gier:\n";		//gra właściwa
 
     while (nr_game ++ < all_games) {
         shuffle(deck);
         counter = 0;
-        start_hand(deck,dealer,gambler,counter,end);
+// 	cards_counting = 0;
+	actual = 0;
+        start_hand(deck,dealer,gambler,counter,end, hands, actual, nr_decks);
     }
 
-    std::cout << "wynik gracza: " <<  gambler.get_bankroll() << '\n';
+    std::cout << "wygrane stawki: " <<  gambler.get_bankroll()/10 << "\nzwrot na but: " << (double)(gambler.get_bankroll()/10)/all_games << "\nilość rąk: " << (hands) << '\n';
+    std::cout << "średnia wygrana na ręke: " << (double)(gambler.get_bankroll()*10)/hands << " %\n";;
 
 }
 
