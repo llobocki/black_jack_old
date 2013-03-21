@@ -46,7 +46,7 @@ char Decision::get_first() const
 
 int Decision::get_cards() const
 {
-  return cards;
+    return cards;
 }
 
 // int Decision::get_value() const

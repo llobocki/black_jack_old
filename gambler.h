@@ -56,8 +56,16 @@ public:
     void win(int bet);
     void push();
 
+    void loose_no_print(int bet);
+    void win_no_print(int bet);
+    void push_no_print();
+
     void reset();
-    void one_card(std::vector<Card> &deck, int &counter, int & actual);
+    void one_card_normal(std::vector< Card >& deck, int& counter);
+    void one_card_basic(std::vector< Card >& deck, int& counter);
+    void one_card_hi_low_I(std::vector<Card> &deck, int &counter, int & actual);
+
+
     void print();
 
     void get_black_jack();
@@ -65,11 +73,14 @@ public:
 
     bool check_black_jack();
 
-    void game_gambler(std::vector< Card >& deck, const Dealer dealer, int& counter, int& actual, const int nr_decks);
+    void game_gambler_normal(std::vector< Card >& deck, const Dealer dealer, int& counter);
+    void game_gambler_basic(std::vector< Card >& deck, const Dealer dealer, int& counter, const int nr_decks);
+    void game_gambler_hi_low_I(std::vector< Card >& deck, const Dealer dealer, int& counter, int& actual, const int nr_decks);
 
     bool too_many();
 
-    void result(const Dealer dealer, int &hands);
+    void result(const Dealer dealer);
+    void result_no_print(const Dealer dealer, int &hands);
 
     void double_card(std::vector< Card >& deck, int& counter, const int i, bool& out, int& actual);
 

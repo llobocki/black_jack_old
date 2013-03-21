@@ -34,7 +34,7 @@
 
 class Dealer : public Person
 {
-;
+    ;
 public:
     Dealer();
 

@@ -42,8 +42,8 @@ Player::Player(int b) :Person()
 void Player::print()
 {
 
-//     std::cout << "\t\t\tgracz: ";
-//     Person::print();
+    std::cout << "\t\t\tgracz: ";
+    Person::print();
 
 
 }

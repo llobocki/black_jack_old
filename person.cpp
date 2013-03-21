@@ -51,7 +51,7 @@ Person::Person()
     split = 0;
     black_jack = false;
     soft_ace = false;
-    
+
 //     card_counter = 0;
 }
 
@@ -79,11 +79,11 @@ void Person::reset()
     black_jack = false;
 }
 
-void Person::add(const Card card, int & actual)
+void Person::add(const Card card)
 {
-//     card.print();
-    
-    actual += card.cards_counter();
+    card.print();
+
+//     actual += card.cards_counter();
 
     cards.push_back(card);
 
@@ -99,6 +99,63 @@ void Person::add(const Card card, int & actual)
 
     use_ace(soft_ace,value);
 }
+
+// void Person::add_no_print(const Card card)
+// {
+//     cards.push_back(card);
+// 
+//     value += card.get_value();
+//     if (card.get_value() == 1) use_soft_ace(soft_ace,value); 		//test
+// 
+// 
+//     if (cards.size() == 2 && value == 21 && split == 0)
+//     {
+//         black_jack = true;
+//     }
+// 
+// 
+//     use_ace(soft_ace,value);
+// }
+
+
+void Person::add_basic(const Card card)
+{
+    cards.push_back(card);
+
+    value += card.get_value();
+    if (card.get_value() == 1) use_soft_ace(soft_ace,value); 		//test
+
+
+    if (cards.size() == 2 && value == 21 && split == 0)
+    {
+        black_jack = true;
+    }
+
+
+    use_ace(soft_ace,value);
+}
+
+void Person::add_hi_low_I(const Card card, int& actual)
+{
+    actual += card.cards_counter();
+
+    cards.push_back(card);
+
+    value += card.get_value();
+    if (card.get_value() == 1) use_soft_ace(soft_ace,value); 		//test
+
+
+    if (cards.size() == 2 && value == 21 && split == 0)
+    {
+        black_jack = true;
+    }
+
+
+    use_ace(soft_ace,value);
+
+}
+
+
 
 
 void Person::print()

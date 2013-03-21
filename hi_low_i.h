@@ -33,7 +33,7 @@
 
 
 
-namespace Hi_low_I{
+namespace Hi_low_I {
 char move_split(int x, int y,int z);
 char move_ace(int x, int y, int z);
 char move_normal(int x, int y, int z);

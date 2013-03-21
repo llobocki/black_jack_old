@@ -28,7 +28,7 @@
 #include "decision_adv.h"
 
 Decision_adv::Decision_adv(char f, int c, char s)
-:Decision(f,c)
+    :Decision(f,c)
 {
 //     first = f;
 //     cards = c;
@@ -45,7 +45,7 @@ Decision_adv::Decision_adv(char f, int c, char s)
 
 Decision_adv::Decision_adv()
 {
-   
+
 }
 
 // Decision_adv& Decision_adv::operator=(const Decision_adv& d)
@@ -60,7 +60,7 @@ Decision_adv::Decision_adv()
 // {
 //     return first;
 // }
-// 
+//
 
 
 // int Decision_adv::get_cards() const

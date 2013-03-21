@@ -15,9 +15,11 @@
 int main(void) {
 
     std::vector<Card> deck;
-   
+
     Dealer dealer;
     Gambler gambler;
+
+    std::cout << "Black jack\n";
 
 
     game(deck, dealer, gambler);

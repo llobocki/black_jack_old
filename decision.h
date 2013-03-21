@@ -38,10 +38,10 @@ private:
 public:
     Decision(char d, int c = 0);
     Decision();
- 
-    
-    
-    
+
+
+
+
     char get_first() const;
     int get_cards() const;
 //     int get_value() const;
