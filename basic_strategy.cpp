@@ -47,7 +47,7 @@ Decision tab_normal[16][10]
     (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),
     (d_hit), (d_dou), (d_dou), (d_dou), (d_dou), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit), //9
     (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_hit), (d_hit),//10
-    (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_hit), (d_hit),
+    (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_hit),
     (d_hit), (d_hit), (d_sta), (d_sta), (d_sta), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),//12
     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),
     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),
@@ -67,20 +67,20 @@ Decision tab_soft_ace[8][10]
     (d_hit), (d_hit), (d_dou), (d_dou), (d_dou), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),//
     (d_hit), (d_hit), (d_dou), (d_dou), (d_dou), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),
     (d_hit), (d_dou), (d_dou), (d_dou), (d_dou), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),
-    (d_sta), (d_dou), (d_dou), (d_dou), (d_dou), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),//18
+    (d_sta), (d_dou), (d_dou), (d_dou), (d_dou), (d_sta), (d_sta), (d_hit), (d_hit), (d_hit),//18
     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta),
     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta),//20
 };
 
 Decision tab_split[10][10] {
-    (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), //a-a
+    (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_hit), //a-a
     (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_hit), (d_hit), (d_hit), (d_hit),
     (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_hit), (d_hit), (d_hit), (d_hit),
     (d_hit), (d_hit), (d_hit), (d_spl), (d_spl), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),
     (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_dou), (d_hit), (d_hit),	//10
     (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_hit), (d_hit), (d_hit), (d_hit), (d_hit),
     (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_hit), (d_hit), (d_hit), (d_hit),//14
-    (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl),//16
+    (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_hit),//16
     (d_spl), (d_spl), (d_spl), (d_spl), (d_spl), (d_sta), (d_spl), (d_spl), (d_sta), (d_sta),//18
     (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta), (d_sta),//20
 };

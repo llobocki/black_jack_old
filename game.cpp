@@ -141,6 +141,7 @@ void start_hand_normal(std::vector< Card >& deck, Dealer& dealer, Gambler &gambl
 void start_hand_basic(std::vector< Card >& deck, Dealer& dealer, Gambler &gambler, int &counter, const int end, int & hands, const int nr_decks, const int & boxes) {
     int nr_fields = boxes 	; //kalkulator
     int bet = 10;
+    
 
 //     int card_counting = 0;
 
@@ -205,6 +206,9 @@ void start_hand_basic(std::vector< Card >& deck, Dealer& dealer, Gambler &gamble
 void start_hand_hi_low_I(std::vector< Card >& deck, Dealer& dealer, Gambler &gambler, int &counter, const int end, int &hands, int & actual, const int nr_decks, const int & boxes) {
     int nr_fields = boxes 	; //kalkulator
     int bet = 10;
+    
+//     if((((actual*counter)/(nr_decks*52))) > 0) bet *= (((actual*counter)/(nr_decks*52)));		//bankroll managment
+//     else if(((actual*counter)/(nr_decks*52)) < 0) bet /= ((((actual*counter)/(nr_decks*52)))* (-1));
 
 //     int card_counting = 0;
 
@@ -259,7 +263,13 @@ void start_hand_hi_low_I(std::vector< Card >& deck, Dealer& dealer, Gambler &gam
                 dealer_game_hi_low_I(deck, dealer, gambler, counter, actual);
 
             }
-
+    
+    
+//     gambler.print();
+//     std::cout << "bankroll: " << gambler.get_bankroll() << '\n';
+//     dealer.print();
+//     std::cout << "wartość rzeczywista: " << (((actual*counter)/(nr_decks*52))) << "\nwartość bieżąca: " << actual << '\n'; 
+    
             gambler.result_no_print(dealer, hands);
         }
 
@@ -324,7 +334,7 @@ void game(std::vector< Card >& deck, Dealer& dealer, Gambler& gambler)
     int hands = 0; //ilość rozegranych rąk
 
     char mode_game; //wybór trybu gry - zwykła lub kalkulator
-    
+
     int boxes = 0;
 
 
@@ -334,7 +344,7 @@ void game(std::vector< Card >& deck, Dealer& dealer, Gambler& gambler)
 
     std::cout << "podaj liczbę gier:\n";		//gra właściwa
     std::cin >> all_games;
-    
+
     switch(mode_game) {
     case 'g': {
 //         std::cout << "podaj liczbę gier:\n";		//gra właściwa
@@ -373,7 +383,7 @@ void game(std::vector< Card >& deck, Dealer& dealer, Gambler& gambler)
     }
 
     case 'h': {	//hi low I
-       std::cout << "podaj ilość boxów:\n";		//gra właściwa
+        std::cout << "podaj ilość boxów:\n";		//gra właściwa
         std::cin >> boxes;
 
         while (nr_game ++ < all_games) {	//pętla but przez ilość butów

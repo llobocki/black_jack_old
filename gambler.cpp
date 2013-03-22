@@ -216,7 +216,7 @@ void Gambler::game_gambler_normal(std::vector< Card >& deck, const Dealer dealer
 
             }
             //					gra właściwa
-            std::cout << "twój ruch:\n";
+            std::cout << "twój ruch:\nf\t-\tkarta\nd\t-\tdouble\ns\t-\tstand\na\t-\tsplit\n";
             std::cin >> bufor;
 
 
@@ -338,6 +338,7 @@ void Gambler::game_gambler_normal(std::vector< Card >& deck, const Dealer dealer
 
 
                     }
+                    break;
                 }
                 else
                     std::cout << "nie możesz już splitować kart\n";
@@ -472,9 +473,10 @@ void Gambler::game_gambler_basic(std::vector< Card >& deck, const Dealer dealer,
 
 
                     }
+                    break;
                 }
                 else
-//                     std::cout << "nie możesz już splitować kart\n";
+// //                     std::cout << "nie możesz już splitować kart\n";
                     break;
             }
             case 'g' : {
@@ -508,16 +510,16 @@ void Gambler::game_gambler_hi_low_I(std::vector< Card >& deck, const Dealer deal
             }
             if(fields[j].can_split()) {
                 if(fields[j].split_aces()) {
-                    bufor = Hi_low_I::move_split(2, dealer.get_cards(),((actual*actual)/nr_decks));
+                    bufor = Hi_low_I::move_split(2, dealer.get_cards(),(((actual*counter)/(nr_decks*52))));
                 }
                 else
-                    bufor = Hi_low_I::move_split(fields[j].get_cards(), dealer.get_cards(),((actual*actual)/nr_decks));
+                    bufor = Hi_low_I::move_split(fields[j].get_cards(), dealer.get_cards(),(((actual*counter)/(nr_decks*52))));
             }
             else if (fields[j].ace_soft()) {
-                bufor = Hi_low_I::move_ace(fields[j].get_cards(), dealer.get_cards(),((actual*actual)/nr_decks));
+                bufor = Hi_low_I::move_ace(fields[j].get_cards(), dealer.get_cards(),(((actual*counter)/(nr_decks*52))));
             }
             else
-                bufor = Hi_low_I::move_normal(fields[j].get_cards(), dealer.get_cards(),((actual*actual)/nr_decks));
+                bufor = Hi_low_I::move_normal(fields[j].get_cards(), dealer.get_cards(),(((actual*counter)/(nr_decks*52))));
 
             switch(bufor) {
             case 'f' : {	//hit
@@ -594,6 +596,7 @@ void Gambler::game_gambler_hi_low_I(std::vector< Card >& deck, const Dealer deal
 
 
                     }
+                    break;
                 }
                 else
 //                     std::cout << "nie możesz już splitować kart\n";
@@ -637,4 +640,4 @@ void Gambler::double_card(std::vector<Card> &deck, int &counter, const int i, bo
 //     fields[i].print();
     out = true;
 }
-  
+

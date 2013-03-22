@@ -39,15 +39,15 @@ char d_spl = 'a';
 const Decision_adv tab_normal[16][10]
 {
 //	 	2		3		4		5		6	  	7	   	 8			9		10		ace
-    { {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}}, //5
+    {{d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}}, //5
     {{d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}},//6
     {{d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}},
     {{d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_dou,5,d_hit}, {d_dou,3,d_hit}, {d_dou,1,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}},//8
     {{d_dou,1,d_hit}, {d_dou,-1,d_hit},{d_dou,-3,d_hit},{d_dou,-5,d_hit},{d_dou,0,d_dou}, {d_dou,3,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}}, //9
     {{d_dou,0,d_dou}, {d_dou,0,d_dou}, {d_dou,0,d_dou}, {d_dou,0,d_dou}, {d_dou,0,d_dou}, {d_dou,0,d_dou}, {d_dou,-5,d_hit},{d_dou,-2,d_hit},{d_dou,4,d_hit}, {d_hit,0,d_hit}},//10
     {{d_dou,0,d_dou}, {d_dou,0,d_dou}, {d_dou,0,d_dou}, {d_dou,0,d_dou}, {d_dou,0,d_dou}, {d_dou,0,d_dou}, {d_dou,0,d_dou}, {d_dou,-5,d_hit},{d_dou,-5,d_hit},{d_hit,0,d_hit}},
-    {{d_sta,3,d_hit}, {d_sta,2,d_hit}, {d_sta,0,d_sta}, {d_hit,-2,d_sta},{d_hit,-1,d_sta},{d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}},//12
-    {{d_hit,-1,d_sta},{d_hit,-2,d_sta},{d_hit,-4,d_sta},{d_hit,-5,d_sta},{d_hit,-5,d_sta},{d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}},
+    {{d_sta,3,d_hit}, {d_sta,2,d_hit}, {d_sta,0,d_sta}, {d_sta,-2,d_hit},{d_sta,-1,d_hit},{d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}},//12
+    {{d_sta,-1,d_hit},{d_sta,-2,d_hit},{d_sta,-4,d_hit},{d_sta,-5,d_hit},{d_sta,-5,d_hit},{d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}},
     {{d_hit,-4,d_sta},{d_hit,-5,d_sta},{d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}},
     {{d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_sta,4,d_hit}, {d_hit,0,d_hit}},//15
     {{d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_sta,5,d_hit}, {d_sta,0,d_hit}, {d_hit,0,d_hit}},//16
@@ -59,12 +59,12 @@ const Decision_adv tab_normal[16][10]
 
 const Decision_adv tab_soft_ace[8][10]
 {
-    {{d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,3,d_dou}, {d_hit,0,d_dou}, {d_hit,-2,d_dou}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}},//13
-    { {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,1,d_dou}, {d_hit,-2,d_dou},{d_hit,-5,d_dou}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}},
+    {{d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_dou,3,d_hit}, {d_dou,0,d_hit}, {d_dou,-2,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}},//13
+    {{d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_dou,1,d_hit}, {d_dou,-2,d_hit},{d_dou,-5,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}},
     {{d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,-1,d_dou},{d_hit,-5,d_dou},{d_dou,0,d_dou},  {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}},//15
-    {{d_hit,0,d_hit}, {d_dou,4,d_hit}, {d_hit,-3,d_dou},{d_dou,0,d_dou}, {d_dou,0,d_dou},  {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}},
+    {{d_hit,0,d_hit}, {d_dou,4,d_hit}, {d_dou,-3,d_hit},{d_dou,0,d_dou}, {d_dou,0,d_dou},  {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}},
     {{d_dou,1,d_hit}, {d_dou,-4,d_hit},{d_dou,0,d_dou}, {d_dou,0,d_dou}, {d_dou,0,d_dou},  {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}},
-    {{d_sta,0,d_hit}, {d_dou,-3,d_sta},{d_dou,0,d_dou}, {d_dou,0,d_dou}, {d_dou,0,d_dou},  {d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}},//18
+    {{d_dou,0,d_sta}, {d_dou,-3,d_sta},{d_dou,0,d_dou}, {d_dou,0,d_dou}, {d_dou,0,d_dou},  {d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}},//18
     {{d_sta,0,d_sta}, {d_dou,5,d_sta}, {d_dou,3,d_sta}, {d_dou,1,d_sta}, {d_dou,1,d_sta},  {d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_sta,0,d_sta}},
     {{d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_dou,5,d_sta}, {d_dou,4,d_sta},  {d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_sta,0,d_sta}},
 };
@@ -72,15 +72,15 @@ const Decision_adv tab_soft_ace[8][10]
 const Decision_adv tab_split[10][10]
 {
     {{d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_hit,0,d_hit}}, //a-a
-    { {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}}, //2-2
-    { {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}}, //3-3
-    { {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_spl,1,d_hit}, {d_spl,-2,d_hit},{d_spl,-5,d_hit},{d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}}, //4-4
-    { {d_dou,0,d_dou}, {d_dou,0,d_dou}, {d_dou,0,d_dou}, {d_dou,0,d_dou}, {d_dou,0,d_dou}, {d_dou,0,d_dou}, {d_dou,-5,d_hit},{d_dou,-2,d_hit},{d_dou,4,d_hit}, {d_hit,0,d_hit}}, //5-5
-    { {d_spl,-2,d_hit},{d_spl,-2,d_hit},{d_spl,-5,d_hit},{d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}}, //6-6
-    { {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,5,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}}, //7-7
-    { {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_hit,0,d_hit}}, //8-8
-    { {d_spl,-3,d_sta},{d_spl,-4,d_sta},{d_spl,-6,d_sta},{d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_sta,0,d_sta}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_sta,0,d_sta}, {d_sta,0,d_sta}}, //9-9
-    { {d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_spl,6,d_sta}, {d_spl,5,d_sta}, {d_spl,4,d_sta}, {d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_sta,0,d_sta}}, //10-10
+    {{d_spl,-4,d_hit},{d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}}, //2-2
+    {{d_spl,0,d_hit}, {d_spl,-5,d_hit},{d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}}, //3-3
+    {{d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_spl,1,d_hit}, {d_spl,-2,d_hit},{d_spl,-5,d_hit},{d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}}, //4-4
+    {{d_dou,0,d_dou}, {d_dou,0,d_dou}, {d_dou,0,d_dou}, {d_dou,0,d_dou}, {d_dou,0,d_dou}, {d_dou,0,d_dou}, {d_dou,-5,d_hit},{d_dou,-2,d_hit},{d_dou,4,d_hit}, {d_hit,0,d_hit}}, //5-5
+    {{d_spl,-2,d_hit},{d_spl,-2,d_hit},{d_spl,-5,d_hit},{d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}}, //6-6
+    {{d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,5,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}, {d_hit,0,d_hit}}, //7-7
+    {{d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_hit,0,d_hit}}, //8-8
+    {{d_spl,-3,d_sta},{d_spl,-4,d_sta},{d_spl,-6,d_sta},{d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_sta,0,d_sta}, {d_spl,0,d_spl}, {d_spl,0,d_spl}, {d_sta,0,d_sta}, {d_sta,0,d_sta}}, //9-9
+    {{d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_spl,6,d_sta}, {d_spl,5,d_sta}, {d_spl,4,d_sta}, {d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_sta,0,d_sta}, {d_sta,0,d_sta}}, //10-10
 };
 
 // Decision_adv gowna(d_dou,4,d_spl);

@@ -103,17 +103,17 @@ void Person::add(const Card card)
 // void Person::add_no_print(const Card card)
 // {
 //     cards.push_back(card);
-// 
+//
 //     value += card.get_value();
 //     if (card.get_value() == 1) use_soft_ace(soft_ace,value); 		//test
-// 
-// 
+//
+//
 //     if (cards.size() == 2 && value == 21 && split == 0)
 //     {
 //         black_jack = true;
 //     }
-// 
-// 
+//
+//
 //     use_ace(soft_ace,value);
 // }
 
